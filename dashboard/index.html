@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Launch Radar — 200 pre-token protocols, ranked</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <h1>Token Launch Radar</h1>
+    <p class="sub">200 protocols that record no token, ranked by what a launch would be worth — snapshot 2026-11-14, DefiLlama.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="method" id="method">
+    <h2>How the ranking works</h2>
+    <p>Implied value = TVL × 0.35 × growth × tenure. Growth comes from the 7-day TVL change (clamped to −40%…+120%, halved, so a fast grower is worth up to 1.6× and a fast shrinker down to 0.8×; no change reported counts as flat). Tenure is how long the protocol has run with no token recorded, up to 4 years, worth up to 1.4×. The board only ranks protocols that record no token and are not a bridge, a centralised exchange, a liquid-staking product or a versioned deployment of something else — the snapshot's watchlist rule, applied to all 342 protocols that record no token. Every row says "records no token", never that it has none: DefiLlama's record is not proof, and a launch is never promised.</p>
+  </section>
+
+  <section class="controls">
+    <label>Search <input id="q" type="search" placeholder="name or slug…" autocomplete="off"></label>
+    <label>Category
+      <select id="cat"><option value="">All categories</option></select>
+    </label>
+    <label class="check"><input id="wl" type="checkbox"> Watchlist only (40)</label>
+    <span class="count" id="count"></span>
+  </section>
+
+  <section class="layout">
+    <div class="tablebox">
+      <table id="board">
+        <thead>
+          <tr>
+            <th data-sort="rank" class="num">Rank</th>
+            <th data-sort="name">Protocol</th>
+            <th data-sort="cat">Category</th>
+            <th data-sort="tvl" class="num">TVL</th>
+            <th data-sort="chg" class="num">7d</th>
+            <th data-sort="age" class="num">Age</th>
+            <th data-sort="val" class="num">Implied value</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+      <p class="hint">Click a row to open its detail view. Click a column header to sort.</p>
+    </div>
+    <aside class="detail" id="detail" aria-live="polite">
+      <p class="empty">Select a protocol to see its full stats and farm plan.</p>
+    </aside>
+  </section>
+</main>
+
+<footer class="wrap">
+  <p>Data: DefiLlama protocols snapshot, fetched 2026-11-14. Implied values are this radar's own claim, not a prediction that a token is issued or what it would trade at. Amounts in farm plans are starting sizes, not financial advice.</p>
+</footer>
+
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

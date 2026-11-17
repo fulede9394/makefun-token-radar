@@ -1,0 +1,78 @@
+/* Token Launch Radar — dark navy, teal accents, amber values. No network. */
+:root {
+  --bg: #0b1220;
+  --panel: #111c30;
+  --panel2: #0e1828;
+  --line: #22314e;
+  --text: #dbe4f0;
+  --muted: #8ea2bf;
+  --teal: #2dd4bf;
+  --amber: #f5a623;
+  --red: #f26d6d;
+  --green: #4ade80;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 15px/1.5 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
+.top { background: linear-gradient(180deg, #12233d, #0b1220); border-bottom: 1px solid var(--line); padding: 26px 0 18px; }
+h1 { margin: 0; font-size: 30px; letter-spacing: .2px; color: #fff; }
+.sub { margin: 6px 0 0; color: var(--muted); }
+.method { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px 18px; margin: 18px 0; }
+.method h2 { margin: 0 0 6px; font-size: 15px; color: var(--teal); text-transform: uppercase; letter-spacing: .08em; }
+.method p { margin: 0; color: var(--muted); font-size: 14px; }
+.controls { display: flex; flex-wrap: wrap; gap: 14px; align-items: end; margin: 0 0 14px; }
+.controls label { font-size: 13px; color: var(--muted); display: flex; flex-direction: column; gap: 4px; }
+.controls label.check { flex-direction: row; align-items: center; gap: 6px; padding-bottom: 8px; }
+.controls input[type="search"], .controls select {
+  background: var(--panel); color: var(--text); border: 1px solid var(--line);
+  border-radius: 6px; padding: 7px 10px; font: inherit; min-width: 200px;
+}
+.controls input[type="checkbox"] { accent-color: var(--teal); width: 16px; height: 16px; }
+.count { margin-left: auto; color: var(--muted); font-size: 13px; padding-bottom: 8px; }
+.layout { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(300px, 1fr); gap: 16px; align-items: start; }
+.tablebox { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+thead th {
+  text-align: left; padding: 10px 12px; color: var(--muted); font-size: 12px;
+  text-transform: uppercase; letter-spacing: .06em; border-bottom: 1px solid var(--line);
+  cursor: pointer; user-select: none; white-space: nowrap; background: var(--panel2);
+}
+thead th.num, td.num { text-align: right; font-variant-numeric: tabular-nums; }
+thead th.sorted { color: var(--teal); }
+tbody td { padding: 8px 12px; border-bottom: 1px solid #16233c; }
+tbody tr { cursor: pointer; }
+tbody tr:hover { background: #16233c; }
+tbody tr.selected { background: #173047; }
+td .name { color: #fff; font-weight: 600; }
+td .slug { color: var(--muted); font-size: 12px; }
+.badge {
+  display: inline-block; font-size: 11px; color: var(--teal); border: 1px solid var(--teal);
+  border-radius: 20px; padding: 0 7px; margin-left: 6px; vertical-align: 1px;
+}
+.val { color: var(--amber); font-weight: 700; font-variant-numeric: tabular-nums; }
+.up { color: var(--green); } .down { color: var(--red); } .flat { color: var(--muted); }
+.hint { margin: 10px 12px; color: var(--muted); font-size: 13px; }
+.detail {
+  background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+  padding: 16px 18px; position: sticky; top: 12px;
+}
+.detail h2 { margin: 0 0 2px; font-size: 21px; color: #fff; }
+.detail .meta { color: var(--muted); font-size: 13px; margin: 0 0 12px; }
+.detail dl { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; margin: 0 0 12px; }
+.detail dt { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .05em; }
+.detail dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+.detail h3 { margin: 14px 0 8px; font-size: 14px; color: var(--teal); text-transform: uppercase; letter-spacing: .06em; }
+.detail ol { margin: 0; padding-left: 20px; }
+.detail li { margin: 0 0 10px; font-size: 14px; }
+.detail .note { color: var(--muted); font-size: 13px; margin: 12px 0 0; }
+.detail .empty { color: var(--muted); }
+footer { color: var(--muted); font-size: 13px; padding: 18px 0 28px; }
+@media (max-width: 860px) {
+  .layout { grid-template-columns: 1fr; }
+  .detail { position: static; }
+}
